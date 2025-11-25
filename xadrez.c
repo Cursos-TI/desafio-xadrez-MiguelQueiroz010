@@ -4,6 +4,56 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
+void moverTorre(int casas){
+        if(casas > 0)
+        {
+            printf("A Torre moveu-se para a direita →!\n");
+            moverTorre(casas - 1);
+        }
+    }
+
+void moverBispo(int casas)
+{
+    if(casas > 0)
+        {
+            for(int i = 0; i < 1; i++)
+            {
+                printf("O Bispo moveu-se para cima ↑!\n");
+                for(int j = 0; j < 1; j++)
+                {
+                    printf("O Bispo moveu-se para a a direita →!\n");
+                }
+            }
+            moverBispo(casas - 1);
+        }
+}
+
+void moverCavalo(int casas)
+{
+    if(casas > 0)
+    {
+        int f = 3;
+        while(f > 1)
+        {
+            for(int i = 0; i < 2; i++, f--)
+            {
+                printf("O cavalo moveu-se para cima ↑!\n");
+            }
+            printf("O cavalo moveu-se para a direita →!\n");
+        }
+        moverCavalo(casas - 1);
+    }
+}
+
+void moverRainha(int casas)
+{
+    if(casas > 0)
+        {
+            printf("A Rainha moveu-se para a esquerda ←!\n");
+            moverRainha(casas - 1);
+        }
+}
+
 int main() {
     printf("Movimento de Peças de Xadrez\nCoded by Miguel A. Queiroz\n\n");
 
@@ -49,9 +99,12 @@ int main() {
     // Nível Mestre - Funções Recursivas e Loops Aninhados
     // Sugestão: Substitua as movimentações das peças por funções recursivas.
     // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-    printf("\nMODO MESTRE ATIVADO!\n");
+    printf("\nMODO MESTRE ATIVADO!\n\n");
 
-    
+    moverTorre(5);
+    moverBispo(5);
+    moverRainha(8);
+    moverCavalo(1);
 
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
